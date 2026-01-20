@@ -1,0 +1,13 @@
+all:
+	docker compose up -d --build
+
+clean:
+	docker compose down
+
+purge: clean
+	powershell -Command "Remove-Item -Force -ErrorAction SilentlyContinue .\data\app.db"
+
+fclean: clean
+	docker system prune -af
+
+re: fclean all

@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Exo2 - CRUD Utilisateurs</title>
+
+  <style>
+
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; }
+
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 18px; margin-bottom: 18px; }
+    input { padding: 10px; margin: 6px 6px 6px 0; }
+    button { padding: 10px 14px; cursor: pointer; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+    .user { display:flex; justify-content:space-between; align-items:center; padding:10px; border-bottom:1px solid #eee;}
+
+    .small { color:#666; font-size: 13px; }
+
+  </style>
+</head>
+
+<body>
+  <h1>Exo2 – CRUD utilisateurs </h1>
+  <p class="small" style="display:none;">Backend: <span id="backendUrl"></span></p>
+
+  <div class="card">
+    
+    <h2>Créer un utilisateur</h2>
+    <div class="row">
+      <input id="newUsername" placeholder="username" />
+
+      <input id="newPassword" placeholder="password" type="password" />
+
+      <button id="btnCreate">Créer</button>
+    </div>
+    <p id="createMsg" class="small"></p>
+  </div>
+
+  <div class="card">
+    <h2>Liste des utilisateurs</h2>
+    <button id="btnRefresh">Rafraîchir</button>
+    <div id="users"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
