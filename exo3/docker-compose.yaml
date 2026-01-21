@@ -1,0 +1,28 @@
+
+services:
+  tor:
+    image: dperson/torproxy
+    restart: unless-stopped
+    expose:
+      - "9050"
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.dockerfile
+    environment:
+      - PORT=5000
+      - TOR_SOCKS=socks5h://tor:9050
+    depends_on:
+      - tor
+    ports:
+      - "5002:5000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "3002:80"
