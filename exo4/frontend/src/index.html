@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EXO 4 — Users</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    body { margin: 0; background: #f6f7fb; color: #111; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .brand { display:flex; align-items:center; gap:10px; }
+    .dot { width:12px; height:12px; border-radius:999px; background:#22c55e; box-shadow:0 0 0 4px rgba(34,197,94,.15); }
+    h1 { font-size: 22px; margin: 0; }
+    .muted { color:#6b7280; font-size: 13px; margin: 6px 0 0; }
+    .grid { display:grid; grid-template-columns: 1.2fr .8fr; gap: 16px; margin-top: 18px; }
+    .card { background:#fff; border:1px solid #e5e7eb; border-radius: 14px; padding: 16px; box-shadow: 0 10px 25px rgba(17,24,39,.05); }
+    .card h2 { font-size: 16px; margin: 0 0 12px; }
+    .row { display:flex; gap:10px; flex-wrap:wrap; }
+    label { display:block; font-size: 12px; color:#6b7280; margin-bottom: 6px; }
+    input { width:100%; padding: 10px 11px; border:1px solid #d1d5db; border-radius: 10px; outline: none; }
+    input:focus { border-color:#6366f1; box-shadow:0 0 0 3px rgba(99,102,241,.18); }
+    .field { flex: 1 1 190px; }
+    .btns { display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
+    button {
+      padding: 10px 12px; border:0; border-radius: 10px; cursor:pointer;
+      background:#111827; color:#fff; font-weight:600;
+    }
+    button.secondary { background:#f3f4f6; color:#111827; border:1px solid #e5e7eb; }
+    button.danger { background:#ef4444; }
+    button:disabled { opacity:.6; cursor:not-allowed; }
+    .status { margin-top: 10px; font-size: 13px; color:#6b7280; min-height: 18px; }
+    .users { display:flex; flex-direction:column; gap:10px; }
+    .user {
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      border:1px solid #e5e7eb; border-radius: 12px; padding: 12px;
+      background: linear-gradient(180deg, #fff, #fbfbff);
+    }
+    .user b { font-size: 14px; }
+    .pill { font-size: 12px; padding: 4px 8px; border-radius: 999px; background:#eef2ff; color:#3730a3; border:1px solid #e0e7ff; }
+    .empty { border:1px dashed #d1d5db; border-radius: 12px; padding: 16px; color:#6b7280; background:#fff; }
+    .hint { font-size: 12px; color:#9ca3af; margin-top: 8px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        
+        <div>
+          <h1>EXO4 </h1>
+        
+        </div>
+      </div>
+      <button id="refresh" class="secondary">↻ Refresh</button>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Liste des users</h2>
+        <div id="users" class="users"></div>
+        <div id="empty" class="empty" style="display:none;">Aucun utilisateur pour le moment.</div>
+        
+      </div>
+
+      <div class="card">
+        <h2>Actions</h2>
+
+        <div class="row">
+          <div class="field">
+            <label>Username</label>
+            <input id="username" placeholder="ex: amani" />
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input id="password" type="password" placeholder="••••••••" />
+          </div>
+        </div>
+
+        <div class="btns">
+          <button id="create">Créer</button>
+          <button id="update" class="secondary">Modifier password</button>
+          <button id="delete" class="danger">Supprimer</button>
+        </div>
+
+        <div id="status" class="status"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
